@@ -1,0 +1,14 @@
+{
+    "name": "migrate",
+    "version": "0.0.1",
+    "description": "Migration for node",
+    "main": "index.js",
+    "dependencies": [{
+    }],
+    "keywords": [
+        "database",
+        "migration"
+    ],
+    "author": "Djordje Lukic",
+    "license": "MIT"
+}
