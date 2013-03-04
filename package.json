@@ -3,8 +3,9 @@
     "version": "0.0.1",
     "description": "Migration for node",
     "main": "index.js",
-    "dependencies": [{
-    }],
+    "scripts": {
+        "test": "mocha --reporter spec"
+    },
     "keywords": [
         "database",
         "migration"
