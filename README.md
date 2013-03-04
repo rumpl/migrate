@@ -2,7 +2,7 @@
 
 Node migrate is a daatbase migration tool inspired by Ruby on Rails migrations
 
-Here is how a migration looks like :
+Here is what a migration looks like :
 ```javascript
 change(function (schema) {
     schema.createTable('test', function (table) {
@@ -15,5 +15,5 @@ change(function (schema) {
         table.addColumn('creation_date', 'date');
         table.addColumn('modification_date', 'date');
     });
-    });
+});
 ```
