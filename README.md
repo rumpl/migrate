@@ -64,7 +64,7 @@ change(function (schema) {
 
 This migration will create a new table called `test` with all the listed columns.
 
-# Licence
+# License
 
-[MIT](http://mit-licence.org/rumpl)
+[MIT](http://mit-license.org/rumpl)
 
