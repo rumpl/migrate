@@ -4,6 +4,8 @@ Node migrate is a database migration tool inspired by Ruby on Rails migrations.
 
 It will soon work for mysql, pgsql and sqlite.
 
+[![build status](https://secure.travis-ci.org/rumpl/migrate.png)](http://travis-ci.org/rumpl/migrate)
+
 # Intallation
 
 Not yet released but it will be as easy as `npm`:
