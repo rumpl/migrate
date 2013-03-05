@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Migrate by rumpl</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Migrate</h1>
+        <p>Node database migration tool</p>
+
+        <p class="view"><a href="https://github.com/rumpl/migrate">View the Project on GitHub <small>rumpl/migrate</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/rumpl/migrate/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/rumpl/migrate/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/rumpl/migrate">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>Node migrate</h1>
+
+<p>Node migrate is a database migration tool inspired by Ruby on Rails migrations.</p>
+
+<p>It will soon work for mysql, pgsql and sqlite.</p>
+
+<h1>Intallation</h1>
+
+<p>Not yet released but it will be as easy as <code>npm</code>:</p>
+
+<div class="highlight"><pre>npm install migrate -g
+</pre></div>
+
+<h1>Usage</h1>
+
+<p><strong>Not working yet</strong></p>
+
+<p>To create a new migration file simply run:</p>
+
+<pre><code>migrate create &lt;name of the migration&gt;
+</code></pre>
+
+<p>To execute the migrations:</p>
+
+<pre><code>migrate update
+</code></pre>
+
+<p>Or just execute <code>migrate</code> without any parameters to see the full list of commands and options.</p>
+
+<h1>Creating migrations</h1>
+
+<p>When you create a new migration file, it will look something like this :</p>
+
+<div class="highlight"><pre><span class="nx">change</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">shema</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Your code here</span>
+<span class="p">});</span>
+</pre></div>
+
+<p>With <code>schema</code> you can do any of the following transformations:</p>
+
+<ul>
+<li><code>schema.createTable</code></li>
+<li><code>schema.dropTable</code></li>
+<li><code>schema.addColumn</code></li>
+<li><code>schema.addIndex</code></li>
+<li><code>schema.removeColumn</code></li>
+<li><code>schema.removeIndex</code></li>
+</ul><p>Here is what a migration migth look like :</p>
+
+<div class="highlight"><pre><span class="nx">change</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">schema</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">schema</span><span class="p">.</span><span class="nx">createTable</span><span class="p">(</span><span class="s1">'test'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">table</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">table</span><span class="p">.</span><span class="nx">addColumn</span><span class="p">(</span><span class="s1">'id'</span><span class="p">,</span> <span class="s1">'int'</span><span class="p">);</span>
+        <span class="nx">table</span><span class="p">.</span><span class="nx">addColumn</span><span class="p">(</span><span class="s1">'name'</span><span class="p">,</span> <span class="s1">'string'</span><span class="p">);</span>
+        <span class="nx">table</span><span class="p">.</span><span class="nx">addColumn</span><span class="p">(</span><span class="s1">'text'</span><span class="p">,</span> <span class="s1">'text'</span><span class="p">);</span>
+        <span class="nx">table</span><span class="p">.</span><span class="nx">addColumn</span><span class="p">(</span><span class="s1">'num_added'</span><span class="p">,</span> <span class="s1">'int'</span><span class="p">,</span> <span class="p">{</span> <span class="s1">'null'</span><span class="o">:</span><span class="kc">false</span><span class="p">,</span> <span class="s1">'default'</span><span class="o">:</span><span class="mi">0</span> <span class="p">});</span>
+        <span class="nx">table</span><span class="p">.</span><span class="nx">addColumn</span><span class="p">(</span><span class="s1">'num_modified'</span><span class="p">,</span> <span class="s1">'integer'</span><span class="p">);</span>
+        <span class="nx">table</span><span class="p">.</span><span class="nx">addColumn</span><span class="p">(</span><span class="s1">'creation_date'</span><span class="p">,</span> <span class="s1">'date'</span><span class="p">);</span>
+        <span class="nx">table</span><span class="p">.</span><span class="nx">addColumn</span><span class="p">(</span><span class="s1">'modification_date'</span><span class="p">,</span> <span class="s1">'date'</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+
+<p>This migration will create a new table called <code>test</code> with all the listed columns.</p>
+
+<h1>License</h1>
+
+<p><a href="http://mit-license.org/rumpl">MIT</a></p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/rumpl">rumpl</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-39039700-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
