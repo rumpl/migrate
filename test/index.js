@@ -21,7 +21,7 @@ describe('Migration', function () {
                 table.addColumn('test', 'int');
                 table.addColumn('test', 'string');
             }).should.throw();
-        })
+        });
     });
 
     describe('Schema', function () {
@@ -45,6 +45,14 @@ describe('Migration', function () {
                 schema.createTable('test', function () {
                 });
             }).should.throw();
+        });
+
+        it('should add a primary key', function () {
+            schema.createTable('test', function (table) {
+                table.addColumn('id', 'int', {'primary': true});
+
+            });
+            schema.addedTables.test.columns.id.primary.should.be.true;
         });
     });
 });
