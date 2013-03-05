@@ -6,13 +6,15 @@ It will soon work for mysql, pgsql and sqlite.
 
 # Intallation
 
-As easy as `npm`:
+Not yet released but it will be as easy as `npm`:
 
 ```bash
 npm install migrate -g
 ```
 
 # Usage
+
+**Not working yet**
 
 To create a new migration file simply run:
 
