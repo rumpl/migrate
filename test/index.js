@@ -35,7 +35,7 @@ describe('Migration', function () {
         it('should add a table', function () {
             schema.createTable('test', function () {
             });
-            assert.exist(schema.tables.test);
+            assert.exist(schema.addedTables.test);
         });
 
         it('should throw if asked to create the same table twice', function () {
