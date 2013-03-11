@@ -33,22 +33,22 @@ describe('Migration', function () {
         });
 
         it('should add a table', function () {
-            schema.createTable('test', function () {
+            schema.addTable('test', function () {
             });
             assert.exist(schema.addedTables.test);
         });
 
         it('should throw if asked to create the same table twice', function () {
             (function () {
-                schema.createTable('test', function () {
+                schema.addTable('test', function () {
                 });
-                schema.createTable('test', function () {
+                schema.addTable('test', function () {
                 });
             }).should.throw();
         });
 
         it('should add a primary key', function () {
-            schema.createTable('test', function (table) {
+            schema.addTable('test', function (table) {
                 table.addColumn('id', 'int', {'primary': true});
 
             });
