@@ -1,22 +1,23 @@
 {
-    "name": "migrate",
-    "version": "0.0.1",
-    "description": "Migration for node",
-    "main": "index.js",
-    "scripts": {
-        "test": "mocha --reporter spec"
-    },
-    "keywords": [
-        "database",
-        "migration"
-    ],
-    "author": "Djordje Lukic",
-    "license": "MIT",
-    "dependencies": {
-        "underscore": "~1.4.4"
-    },
-    "devDependencies": {
-        "mocha": "~1.8.1",
-        "should": "~1.2.2"
-    }
+  "name": "migrate",
+  "version": "0.0.1",
+  "description": "Migration for node",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "keywords": [
+    "database",
+    "migration"
+  ],
+  "author": "Djordje Lukic",
+  "license": "MIT",
+  "dependencies": {
+    "underscore": "~1.4.4",
+    "optimist": "~0.3.5"
+  },
+  "devDependencies": {
+    "mocha": "~1.8.1",
+    "should": "~1.2.2"
+  }
 }
