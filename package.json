@@ -14,7 +14,7 @@
   "license": "MIT",
   "dependencies": {
     "underscore": "~1.4.4",
-    "optimist": "~0.3.5"
+    "cli-app": "0.1.0"
   },
   "devDependencies": {
     "mocha": "~1.8.1",
