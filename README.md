@@ -54,12 +54,6 @@ Here is what a migration migth look like :
 
 ```javascript
 module.exports.change = function (schema) {
-  schema.addTable('toto', function (table) {
-    table.addColumn('toto', 'int', {primary: true, autoincrement: true, null: false});
-    table.addColumn('name', 'string');
-    table.addColumn('desc', 'varchar(1024)');
-  });
-
   schema.addTable('test', function (table) {
     table.addColumn('id', 'int', {primary: true});
     table.addColumn('name', 'string');
@@ -72,10 +66,6 @@ module.exports.change = function (schema) {
 
     table.addIndex('idx_added', 'description', {'type': 'unique'});
   });
-
-  schema.addIndex('idx_added', 'test', 'description', {'type': 'unique'});
-
-  schema.removeIndex('idx_removed', 'test', 'description', {'type': 'unique'});
 };
 ```
 
