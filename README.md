@@ -53,17 +53,30 @@ With `schema` you can do any of the following transformations:
 Here is what a migration migth look like :
 
 ```javascript
-change(function (schema) {
-    schema.createTable('test', function (table) {
-        table.addColumn('id', 'int');
-        table.addColumn('name', 'string');
-        table.addColumn('text', 'text');
-        table.addColumn('num_added', 'int', { 'null':false, 'default':0 });
-        table.addColumn('num_modified', 'integer');
-        table.addColumn('creation_date', 'date');
-        table.addColumn('modification_date', 'date');
-    });
-});
+module.exports.change = function (schema) {
+  schema.addTable('toto', function (table) {
+    table.addColumn('toto', 'int', {primary: true, autoincrement: true, null: false});
+    table.addColumn('name', 'string');
+    table.addColumn('desc', 'varchar(1024)');
+  });
+
+  schema.addTable('test', function (table) {
+    table.addColumn('id', 'int', {primary: true});
+    table.addColumn('name', 'string');
+    table.addColumn('description', 'text');
+    table.addColumn('num_added', 'int', {'null': false, 'default': 0});
+    table.addColumn('num_modified', 'integer', {'references': {'table': 'toto', 'column': 'toto'}});
+
+    table.addColumn('creation_date', 'date');
+    table.addColumn('modification_date', 'date');
+
+    table.addIndex('idx_added', 'description', {'type': 'unique'});
+  });
+
+  schema.addIndex('idx_added', 'test', 'description', {'type': 'unique'});
+
+  schema.removeIndex('idx_removed', 'test', 'description', {'type': 'unique'});
+};
 ```
 
 This migration will create a new table called `test` with all the listed columns.
